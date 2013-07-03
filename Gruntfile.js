@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 
     watch: {
       build: {
-        files: 'scss/**/*.{sass,scss}',
+        files: ['scss/**/*.{sass,scss}', '**/*.html'],
         tasks: 'default',
         options: {
           livereload: true
@@ -37,30 +37,21 @@ module.exports = function(grunt) {
         options: {
           browsers: ['last 2 versions', '> 1%']
         },
-        files: {
-          // destination, source(s)
-          'css/demo/demo.autoprefixed.css': ['css/demo/demo.css'],
-          'css/modules/modals.autoprefixed.css': ['css/modules/modals.css'],
-          'css/modules/modals-1.autoprefixed.css': ['css/modules/modals-1.css'],
-          'css/modules/modals-2.autoprefixed.css': ['css/modules/modals-2.css'],
-          'css/modules/buttons-1.autoprefixed.css': ['css/modules/buttons-1.css'],
-          'css/modules/list-items-1.autoprefixed.css': ['css/modules/list-items-1.css']
-        }
-      }
-    },
-
-    connect: {
-      server: {
-        options: {
-          port: 3000,
-          base: './'
-        }
+        files: [
+          {
+            src : ['**/*.css', '!**/*autoprefixed.css'],
+            cwd : 'css',
+            dest : 'css',
+            ext : '.autoprefixed.css',
+            expand : true
+          }
+        ]
       }
     }
   });
 
   // Default task
   grunt.registerTask('default', ['sass', 'autoprefixer']);
-  grunt.registerTask('dev', ['connect', 'watch']);
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  
 };
