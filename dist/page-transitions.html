@@ -12,35 +12,35 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <link rel="stylesheet" href="assets/css/demo/demo.css">
+    <link rel="stylesheet" href="assets/css/demo/demo.autoprefixed.css">
 
     <!-- Individual module CSS files here -->
     <!-- Should we combine or not combine? -->
-    <link rel="stylesheet" href="assets/css/modules/modals.css">
-    <link rel="stylesheet" href="assets/css/modules/buttons.css">
-    <link rel="stylesheet" href="assets/css/modules/list-items.css">
-    <link rel="stylesheet" href="assets/css/modules/off-screen-nav.css">
-    <link rel="stylesheet" href="assets/css/modules/page-transitions.css">
-    <link rel="stylesheet" href="assets/css/modules/captions.css">
-    <link rel="stylesheet" href="assets/css/modules/list-scroll.css">
+    <link rel="stylesheet" href="assets/css/modules/modals.autoprefixed.css">
+    <link rel="stylesheet" href="assets/css/modules/buttons.autoprefixed.css">
+    <link rel="stylesheet" href="assets/css/modules/list-items.autoprefixed.css">
+    <link rel="stylesheet" href="assets/css/modules/off-screen-nav.autoprefixed.css">
+    <link rel="stylesheet" href="assets/css/modules/page-transitions.autoprefixed.css">
+    <link rel="stylesheet" href="assets/css/modules/captions.autoprefixed.css">
+    <link rel="stylesheet" href="assets/css/modules/list-scroll.autoprefixed.css">
 </head>
 
 <body>
 
   <nav class="effeckt-off-screen-nav" id="effeckt-off-screen-nav">
-  <h4>Navigation
-  <a href="#0" id="effeckt-off-screen-nav-close" class="effeckt-off-screen-nav-close">×</a></h4>
+
+  <h4>
+    Navigation
+    <a href="#0" id="effeckt-off-screen-nav-close" class="effeckt-off-screen-nav-close">×</a>
+  </h4>
+
   <ul>
-    <li><a href="#0">Lorem</a></li>
-    <li><a href="#0">Lorem</a></li>
-    <li><a href="#0">Lorem</a></li>
-    <li><a href="#0">Lorem</a></li>
-    <li><a href="#0">Lorem</a></li>
-    <li><a href="#0">Lorem</a></li>
-    <li><a href="#0">Lorem</a></li>
-    <li><a href="#0">Lorem</a></li>
-    <li><a href="#0">Lorem</a></li>
-    <li><a href="#0">Lorem</a></li>
+    <li><a href="#0">This</a></li>
+    <li><a href="#0">Little</a></li>
+    <li><a href="#0">Piggy</a></li>
+    <li><a href="#0">Went</a></li>
+    <li><a href="#0">To</a></li>
+    <li><a href="#0">Market</a></li>
   </ul>
 
 </nav>
@@ -91,7 +91,11 @@
         <span>s</span>
       </a>
     </h1>
-    <subhead>Performant CSS transitions & animations</subhead>
+    <subhead>
+      Performant CSS transitions & animations
+      <a href="https://github.com/h5bp/Effeckt.css">on GitHub</a>
+    </subhead>
+
 
     <div class="effeckt effeckt-demo-modals">
 
@@ -112,10 +116,19 @@
 </div>
 
 
+
+    <div class="effeckt contributors">
+      <header>
+        <h2>Contributors!</h2>
+      </header>
+      <p>Excellent people go here.</p>
+    </div>
+
+
+    <div class="off-screen-nav-cover"></div>
+
+
   </div><!-- div.page-wrap -->
-
-
-  <a href="https://github.com/h5bp/Effeckt.css"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 
 
   <!-- libs -->
@@ -137,7 +150,7 @@
   <script src="assets/js/modules/list-scroll.js"></script>
 
   <script>
-  stroll.bind('.effeckt-demo-list-scroll ul');
+    stroll.bind('.effeckt-demo-list-scroll ul');
   </script>
   
 </body>

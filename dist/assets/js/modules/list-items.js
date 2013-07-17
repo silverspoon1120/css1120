@@ -39,7 +39,7 @@ var ListItems = {
     // Having the timing here in JS is kinda not great.
     switch (type) {
       case 'expand-in':
-        delay = 300;
+        delay = 200;
         break;
       case 'wobble-in':
         delay = 1200;
@@ -48,7 +48,7 @@ var ListItems = {
         delay = 1000;
         break;
       default:
-        delay = 600;
+        delay = 500;
     }
 
     var elToRemove = $parent.find("li.new-item").last();
