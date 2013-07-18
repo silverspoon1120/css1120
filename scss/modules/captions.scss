@@ -1,31 +1,21 @@
+@import "../_variables";
+@import "../_mixins";
+
 // Base
 .effeckt-caption {
   position: relative;
-  width: 48%;
   float: left;
-  margin: 0 4% 1rem 0;
   overflow: hidden;
   &:nth-child(2n) {
     margin-right: 0;
   }
   img {
-    width: 100%;
-    display: block;
-    transition: 0.5s;
+    @include transition($effeckt-caption-transition-duration);
   }
   figcaption {
     position: absolute;
-    background: rgba(black, 0.8);
-    color: white;
-    transition: 0.5s;
+    @include transition($effeckt-caption-transition-duration);
     width: 100%;
-    padding: 1rem;
-    h3 {
-      font-size: 1.2rem;
-    }
-    p {
-      margin: 0;
-    }
   }
 }
 
@@ -51,12 +41,12 @@
     bottom: 0;
     left: 0;
     opacity: 0;
-    transform: translateY(100%);
+    @include transform(translateY(100%));
   }
   &:hover, &:active {
     figcaption {
       opacity: 1;
-      transform: translateY(0);
+      @include transform(translateY(0));
     }
   }
 }
@@ -69,6 +59,8 @@
     left: 0;
     width: 100%;
     height: 100%;
+    opacity: 0;
+    @include transition(none);
     z-index: 0;
   }
   img {
@@ -88,8 +80,8 @@
       transition-delay: 0.25s;
     }
     img {
-      transform: scale(0.5) translateY(-80px);
-      transition-delay: 0;
+      @include transform(scale(0.5) translateY(-80px));
+      @include transition-delay(0);
     }
   }
 }
@@ -101,12 +93,12 @@
     left: 0;
     bottom: 0;
     opacity: 0;
-    transform: translateX(100%);
+    @include transform(translateX(100%));
   }
   &:hover, &:active {
     figcaption {
       opacity: 1;
-      transform: translateX(0);
+      @include transform(translateX(0));
     }
   }
 }
@@ -133,12 +125,12 @@
   figcaption {
     top: 0;
     left: 0;
-    transform: translateX(100%) rotate(20deg);
+    @include transform(translateX(100%) rotate(20deg));
     opacity: 0;
   }
   &:hover, &:active {
     figcaption {
-      transform: translateX(0) rotate(0deg);
+      @include transform(translateX(0) rotate(0deg));
       opacity: 1;
     }
   }
@@ -150,20 +142,20 @@
   figcaption {
     top: 0;
     left: 0;
-    transform: translateX(-100%);
+    @include transform(translateX(-100%));
     opacity: 0;
   }
   .effeckt-figcaption-wrap {
-    transition: 0.5s 0.25s;
-    transform: translateX(200%);
+    @include transition($effeckt-caption-transition-duration $effeckt-caption-transition-duration/2);
+    @include transform(translateX(200%));
   }
   &:hover, &:active {
     figcaption {
-      transform: translateX(0);
+      @include transform(translateX(0));
       opacity: 1;
     }
     .effeckt-figcaption-wrap {
-      transform: translateX(0);
+      @include transform(translateX(0));
     }
   }
 }
@@ -175,20 +167,20 @@
     top: 0;
     left: 0;
     height: 100%;
-    transform: translateX(-100%);
+    @include transform(translateX(-100%));
     opacity: 0;
   }
   img {
-    transition: 0.5s;
-    transform: translateX(0);
+    @include transition($effeckt-caption-transition-duration);
+    @include transform(translateX(0));
   }
   &:hover, &:active {
     figcaption {
-      transform: translateX(0);
+      @include transform(translateX(0));
       opacity: 1;
     }
     img {
-      transform: translateX(100%);
+      @include transform(translateX(100%));
     }
   }
 }
@@ -199,20 +191,20 @@
   figcaption {
     top: 0;
     left: 0;
-    transform: scale(2);
+    @include transform(scale(2));
     opacity: 0;
     text-align: center;
   }
   img {
-    transition: 0.5s;
+    @include transition($effeckt-caption-transition-duration);
   }
   &:hover, &:active {
     figcaption {
-      transform: scale(1);
+      @include transform(scale(1));
       opacity: 1;
     }
     img {
-      transform: scale(1.1);
+      @include transform(scale(1.1));
     }
   }
 }
@@ -227,18 +219,18 @@
     left: 0;
     width: 100%;
     height: 100%;
-    transform: rotateY(180deg);
-    backface-visibility: hidden;
+    @include transform(rotateY(180deg));
+    @include backface-visibility(hidden);
   }
   img {
-    transition: 0.5s;
+    @include transition(0.5s);
   }
   &:hover, &:active {
     figcaption {
-     transform: rotateY(360deg);
+     @include transform(rotateY(360deg));
     }
     img {
-      transform: rotateY(180deg);
+      @include transform(rotateY(180deg));
     }
   }
 }
