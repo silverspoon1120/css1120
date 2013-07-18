@@ -1,114 +1,106 @@
+@import "../_variables";
+@import "../_mixins";
+
+
 // Base
 .effeckt-list-scroll {
   position: relative;
-  width: 230px;
-  height: 480px;
-  margin: 0;
-  padding: 0;
   overflow-x: hidden;
   overflow-y: scroll;
-  list-style: none;
-  perspective: 400px;
-  
+  @include perspective(400px);
   > li {
     position: relative;
-    padding: 0.5rem;
-    background: #eee;
-    color: #252525;
-    font-size: 18px;
     z-index: 2;
-    transform: translateZ(0);
-    &:nth-child(odd) {
-      background: #e6e6e6;
-    }
+    @include transform(translateZ(0));
   }
 }
 
 
 // Grow
 [data-effeckt="grow"] li {
-  transition: all 600ms ease;
-  transform-origin: 50% 50%;
-
-  &.past, &.future {
-    transform: scale(0.01);
+  @include transition(all $effeckt-list-scroll-transition-duration ease);
+  @include transform-origin(50% 50%);
+  &.past {
+    @include transform(scale(0.01));
+  }
+  &.future {
+    @include transform(scale(0.01));
   }
 }
 
 
 // Curl
-[data-effeckt="curl"] {
-  // this was originally applied to the 'li', 
-  // was this a mistake? Seems like it should 
-  // be part of the parent <ul>
-  perspective: 600px;
-  perspective-origin: 0% 50%;
-
-  li {
-    transition: all 600ms ease,
-    opacity 200ms ease;
-    transform-origin: 0% 0%;
-    backface-visibility: hidden;
-
-    &.past, &.future {
-      opacity: 0;
-      transform: rotateY(90deg);
-    }
-
-  }
+[data-effeckt="curl"] li {
+  @include perspective(600px);
+  @include perspective-origin(0% 50%);
 }
+[data-effeckt="curl"] li {
+  @include transition(all $effeckt-list-scroll-transition-duration ease, opacity $effeckt-list-scroll-transition-duration/3 ease);
+  @include transform-origin(0% 0%);
+  @include backface-visibility(hidden);
+}
+[data-effeckt="curl"] li.past {
+  @include opacity(0);
+  @include transform(rotateY(90deg));
+}
+[data-effeckt="curl"] li.future {
+  @include opacity(0);
+  @include transform(rotateY(90deg));
+}
+
 
 // Wave
 [data-effeckt="wave"] li {
-  transition: all 600ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
-
-  &.past, &.future {
-    transform: translateX(-70%);
-  }
+  @include transition(all $effeckt-list-scroll-transition-duration cubic-bezier(0.260, 0.860, 0.440, 0.985));
 }
+[data-effeckt="wave"] li.past {
+  @include transform(translateX(-70%));
+}
+[data-effeckt="wave"] li.future {
+  @include transform(translateX(-70%));
+}
+
 
 // Fan
 [data-effeckt="fan"] li {
-  transition: all 600ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
-  transform-origin: 0% 0%;
-
-  &.past {
-    transform: rotate(-60deg);
-  }
-
-  &.future {
-    transform: rotate(70deg);
-  }
+  @include transition(all $effeckt-list-scroll-transition-duration cubic-bezier(0.390, 0.575, 0.565, 1.000));
+  @include transform-origin(0% 0%);
+  position: relative;
 }
+[data-effeckt="fan"] li.past {
+  @include transform(rotate(-60deg));
+}
+[data-effeckt="fan"] li.future {
+  @include transform(rotate(70deg));
+}
+
 
 // Fade
 [data-effeckt="fade"] li {
-  transition: opacity .35s ease-in-out;
-
-  &.past, &.future {
-    opacity: 0;
-  }
+  @include transition(opacity $effeckt-list-scroll-transition-duration/2 ease-in-out);
 }
+[data-effeckt="fade"] li.past {
+  @include opacity(0);
+}
+[data-effeckt="fade"] li.future {
+  @include opacity(0);
+}
+
 
 // Fly
 [data-effeckt="fly"] {
-  perspective: 400px;
-  perspective-origin: 50% 50%;
-
-  li {
-    transition: all 600ms ease, opacity 300ms ease;
-    transform-origin: 50% 50% -50px;
-    
-      &.past, &.future {
-        opacity: 0;
-      }
-      
-      &.past  {
-        transform: rotateX(180deg);
-      }
-    
-      &.future {
-        transform: rotateX(-180deg);
-      }
-  }
+  @include perspective(400px);
+  @include perspective-origin(50% 50%);
+}
+[data-effeckt="fly"] li {
+  @include transition(all $effeckt-list-scroll-transition-duration ease, opacity $effeckt-list-scroll-transition-duration/2 ease);
+  @include transform-origin(50% 50% -50px);
+}
+[data-effeckt="fly"] li.past {
+  @include opacity(0);
+  @include transform(rotateX(180deg));
+}
+[data-effeckt="fly"] li.future {
+  @include opacity(0);
+  @include transform(rotateX(-180deg));
 }
