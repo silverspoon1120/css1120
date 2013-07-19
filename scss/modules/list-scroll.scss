@@ -1,100 +1,114 @@
-@import "../_variables";
-@import "../_mixins";
-
-
 // Base
 .effeckt-list-scroll {
   position: relative;
+  width: 230px;
+  height: 480px;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
   overflow-y: scroll;
-  @include perspective(400px);
-
+  list-style: none;
+  perspective: 400px;
+  
   > li {
     position: relative;
+    padding: 0.5rem;
+    background: #eee;
+    color: #252525;
+    font-size: 18px;
     z-index: 2;
-    @include transform(translateZ(0));
+    transform: translateZ(0);
+    &:nth-child(odd) {
+      background: #e6e6e6;
+    }
   }
 }
 
 
 // Grow
 [data-effeckt="grow"] li {
-  @include transition(all $effeckt-list-scroll-transition-duration ease);
-  @include transform-origin(50% 50%);
+  transition: all 600ms ease;
+  transform-origin: 50% 50%;
+
   &.past, &.future {
-    @include transform(scale(0.01));
+    transform: scale(0.01);
   }
 }
 
 
 // Curl
-[data-effeckt="curl"] li {
+[data-effeckt="curl"] {
   // this was originally applied to the 'li', 
   // was this a mistake? Seems like it should 
   // be part of the parent <ul>
-  @include perspective(600px);
-  @include perspective-origin(0% 50%);
-  @include transition(all $effeckt-list-scroll-transition-duration ease, opacity $effeckt-list-scroll-transition-duration/3 ease);
-  @include transform-origin(0% 0%);
-  @include backface-visibility(hidden);
-  &.past {
-    @include opacity(0);
-    @include transform(rotateY(90deg));
-  }
-  &.future {
-    @include opacity(0);
-    @include transform(rotateY(90deg));
+  perspective: 600px;
+  perspective-origin: 0% 50%;
+
+  li {
+    transition: all 600ms ease,
+    opacity 200ms ease;
+    transform-origin: 0% 0%;
+    backface-visibility: hidden;
+
+    &.past, &.future {
+      opacity: 0;
+      transform: rotateY(90deg);
+    }
+
   }
 }
 
 // Wave
 [data-effeckt="wave"] li {
-  @include transition(all $effeckt-list-scroll-transition-duration cubic-bezier(0.260, 0.860, 0.440, 0.985));
-  &.past {
-    @include transform(translateX(-70%));
-  }
-  &.future {
-    @include transform(translateX(-70%));
+  transition: all 600ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+
+  &.past, &.future {
+    transform: translateX(-70%);
   }
 }
 
 // Fan
 [data-effeckt="fan"] li {
-  @include transition(all $effeckt-list-scroll-transition-duration cubic-bezier(0.390, 0.575, 0.565, 1.000));
-  @include transform-origin(0% 0%);
+  transition: all 600ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  transform-origin: 0% 0%;
+
   &.past {
-    @include transform(rotate(-60deg));
+    transform: rotate(-60deg);
   }
+
   &.future {
-    @include transform(rotate(70deg));
+    transform: rotate(70deg);
   }
 }
 
 // Fade
 [data-effeckt="fade"] li {
-  @include transition(opacity $effeckt-list-scroll-transition-duration/2 ease-in-out);
+  transition: opacity .35s ease-in-out;
 
   &.past, &.future {
-    @include opacity(0);
+    opacity: 0;
   }
 }
 
 // Fly
 [data-effeckt="fly"] {
-  @include perspective(400px);
-  @include perspective-origin(50% 50%);
-  li {
-    @include transition(all $effeckt-list-scroll-transition-duration ease, opacity $effeckt-list-scroll-transition-duration/2 ease);
-    @include transform-origin(50% 50% -50px);
+  perspective: 400px;
+  perspective-origin: 50% 50%;
 
-    &.past, &.future {
-      @include opacity(0);
-    }
-    &.past {
-      @include transform(rotateX(180deg));
-    }
-    &.future {
-      @include transform(rotateX(-180deg));
-    }
+  li {
+    transition: all 600ms ease, opacity 300ms ease;
+    transform-origin: 50% 50% -50px;
+    
+      &.past, &.future {
+        opacity: 0;
+      }
+      
+      &.past  {
+        transform: rotateX(180deg);
+      }
+    
+      &.future {
+        transform: rotateX(-180deg);
+      }
   }
 }

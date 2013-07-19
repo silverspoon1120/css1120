@@ -59,34 +59,44 @@ var Modals = {
     if (button.data("hide-class")) {
       Modals.modalWrap.data("hide-class",true);
     }
-    Modals.modalWrap.data("hide-class", button.data("hide-class"));
 
-    var evt = EffecktDemos.animationEndEventName + ' ' + EffecktDemos.transitionEndEventName;
-    Modals.overlay.on(evt, function () {
+    // Using timeout so we can set style first, then show it so animations/transitions work. You normally wouldn't need to do this.
+    // This is problematic because timings should be controlled in CSS
+    setTimeout(function() {
       Modals.modalWrap.addClass("effeckt-show");
-      Modals.overlay.off(evt);
-    });
+    }, 300);
 
     Modals.showOverlay();
 
   },
 
   closeModal: function(el) {
-    var evt = EffecktDemos.animationEndEventName + ' ' + EffecktDemos.transitionEndEventName;
 
-    Modals.modalWrap.on(evt, function () {
-      Modals.modalWrap.removeClass("effeckt-show effeckt-hide " + Modals.modalStyle);
+    //Not the cleanest way
+    if( Modals.modalWrap.data("hide-class") ){
+
+      Modals.modalWrap.addClass("effeckt-hide");
+
+      setTimeout(function() {
+        Modals.modalWrap.removeClass("effeckt-show effeckt-hide");
+      }, 300);
+
+      Modals.modalWrap.data("hide-class",false);
+
+    } else {
+
+      Modals.modalWrap.removeClass("effeckt-show");
+
+    }
+
+    setTimeout(function() {
+      Modals.modalWrap.removeClass(Modals.modalStyle);
       $("html").removeClass("md-perspective");
-      Modals.modalWrap.hide().off(evt);
-    });
+      Modals.modalWrap.hide();
+    }, 300);
 
     Modals.hideOverlay();
-    //Not the cleanest way
-    Modals.modalWrap.removeClass("effeckt-show");
 
-    if( Modals.modalWrap.data("hide-class") ){
-      Modals.modalWrap.addClass("effeckt-hide");
-    }
   },
 
   showOverlay: function() {
