@@ -41,8 +41,7 @@ var EffecktOffScreenNav = {
       EffecktOffScreenNav.nav.removeClass("effeckt-off-screen-nav-show");
 
       setTimeout(function() {
-
-        EffecktOffScreenNav.nav.removeClass(EffecktOffScreenNav.closeButton.data("effeckt"));
+        EffecktOffScreenNav.nav.removeClass(type);
 
         // WEIRD BUG
         // Have to trigger redraw or it sometimes leaves
