@@ -187,66 +187,6 @@
   opacity: 1;
   transform: none; }
 
-.effeckt-button.fill-from-left:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: black;
-  transition: width 500ms; }
-.effeckt-button.fill-from-left:hover:after {
-  width: 100%; }
-.effeckt-button.fill-from-left .label {
-  position: relative;
-  z-index: 1; }
-
-.effeckt-button.fill-from-right:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 0;
-  height: 100%;
-  background: black;
-  transition: width 500ms; }
-.effeckt-button.fill-from-right:hover:after {
-  width: 100%; }
-.effeckt-button.fill-from-right .label {
-  position: relative;
-  z-index: 1; }
-
-.effeckt-button.fill-from-top:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  background: black;
-  transition: height 500ms; }
-.effeckt-button.fill-from-top:hover:after {
-  height: 100%; }
-.effeckt-button.fill-from-top .label {
-  position: relative;
-  z-index: 1; }
-
-.effeckt-button.fill-from-bottom:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  background: black;
-  transition: height 500ms; }
-.effeckt-button.fill-from-bottom:hover:after {
-  height: 100%; }
-.effeckt-button.fill-from-bottom .label {
-  position: relative;
-  z-index: 1; }
-
 .effeckt-caption {
   position: relative;
   float: left;
@@ -685,7 +625,7 @@
 
 .md-effect-7 .effeckt-modal {
   transform: translateY(-100%);
-  transition: all 0.3s;
+  transition: all .3s;
   opacity: 0; }
 
 .effeckt-show.md-effect-7 .effeckt-modal {
@@ -742,10 +682,10 @@
 
 .effeckt-show.md-effect-12 .effeckt-modal {
   opacity: 1;
-  background: #555555; }
+  background: #555; }
 
 .effeckt-show.md-effect-12 ~ .effeckt-overlay {
-  background: #555555; }
+  background: #555; }
 
 .md-effect-12, .md-effect-12 h3 {
   background: transparent; }
@@ -980,6 +920,20 @@
   .effeckt-off-screen-nav-left-push ~ .page-wrap {
     transition: 500ms; }
 
+.effeckt-off-screen-nav-left-reveal {
+  width: 0px;
+  transform: translate3D(0, 0, 0);
+  transition: 500ms; }
+  .effeckt-off-screen-nav-left-reveal h4 {
+    width: 10rem; }
+  .effeckt-off-screen-nav-left-reveal.effeckt-off-screen-nav-show {
+    width: 12rem;
+    transform: translateX(0); }
+    .effeckt-off-screen-nav-left-reveal.effeckt-off-screen-nav-show ~ .page-wrap {
+      transform: translateX(12rem); }
+  .effeckt-off-screen-nav-left-reveal ~ .page-wrap {
+    transition: 500ms; }
+
 .effeckt-off-screen-nav-left-squeeze {
   width: 40%;
   transform: translateX(-100%);
@@ -1010,6 +964,30 @@
     .effeckt-off-screen-nav-right-push.effeckt-off-screen-nav-show ~ .page-wrap {
       transform: translateX(-12rem); }
   .effeckt-off-screen-nav-right-push ~ .page-wrap {
+    transition: 500ms; }
+
+.effeckt-off-screen-nav-right-reveal {
+  width: 0;
+  overflow: hidden;
+  left: auto;
+  right: 0;
+  transform: translate3D(0, 0, 0);
+  transition: 500ms; }
+  .effeckt-off-screen-nav-right-reveal h4 {
+    width: 10rem;
+    position: absolute;
+    top: 0px;
+    right: 0; }
+  .effeckt-off-screen-nav-right-reveal ul {
+    width: 12rem;
+    position: absolute;
+    top: 3.2rem;
+    right: 0; }
+  .effeckt-off-screen-nav-right-reveal.effeckt-off-screen-nav-show {
+    width: 12rem; }
+    .effeckt-off-screen-nav-right-reveal.effeckt-off-screen-nav-show ~ .page-wrap {
+      transform: translateX(-12rem); }
+  .effeckt-off-screen-nav-right-reveal ~ .page-wrap {
     transition: 500ms; }
 
 .effeckt-off-screen-nav-right-squeeze {
@@ -1386,7 +1364,7 @@
   transform: translateX(-50%);
   bottom: 125%;
   border-radius: 10px;
-  background: #333333;
+  background: #333;
   color: white;
   padding: 0.45rem 0.8rem;
   font-size: 90%;
@@ -1396,7 +1374,7 @@
   content: "";
   width: 0;
   height: 0;
-  border-top: 5px solid #333333;
+  border-top: 5px solid #333;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   position: absolute;
@@ -1421,7 +1399,7 @@
   transform: translateX(-50%);
   top: 125%;
   border-radius: 10px;
-  background: #333333;
+  background: #333;
   color: white;
   padding: 0.45rem 0.8rem;
   font-size: 90%;
@@ -1430,7 +1408,7 @@
   content: "";
   width: 0;
   height: 0;
-  border-bottom: 5px solid #333333;
+  border-bottom: 5px solid #333;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   position: absolute;
