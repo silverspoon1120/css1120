@@ -187,6 +187,66 @@
   opacity: 1;
   transform: none; }
 
+.effeckt-button.fill-from-left:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #000;
+  transition: width 500ms; }
+.effeckt-button.fill-from-left:hover:after {
+  width: 100%; }
+.effeckt-button.fill-from-left .label {
+  position: relative;
+  z-index: 1; }
+
+.effeckt-button.fill-from-right:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background: #000;
+  transition: width 500ms; }
+.effeckt-button.fill-from-right:hover:after {
+  width: 100%; }
+.effeckt-button.fill-from-right .label {
+  position: relative;
+  z-index: 1; }
+
+.effeckt-button.fill-from-top:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: #000;
+  transition: height 500ms; }
+.effeckt-button.fill-from-top:hover:after {
+  height: 100%; }
+.effeckt-button.fill-from-top .label {
+  position: relative;
+  z-index: 1; }
+
+.effeckt-button.fill-from-bottom:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: #000;
+  transition: height 500ms; }
+.effeckt-button.fill-from-bottom:hover:after {
+  height: 100%; }
+.effeckt-button.fill-from-bottom .label {
+  position: relative;
+  z-index: 1; }
+
 .effeckt-caption {
   position: relative;
   float: left;
@@ -447,6 +507,135 @@
     transform: perspective(400px) rotateX(90deg);
     opacity: 0; } }
 
+.effeckt-list[data-type='fall-in'] .new-item {
+  backface-visibility: visible;
+  animation: openSpace 1000ms ease forwards, fallInX 1000ms both; }
+
+.effeckt-list[data-type='fall-in'] .remove-item {
+  backface-visibility: visible;
+  transform-origin: top left;
+  animation: fallOffX 1000ms both, closeSpace 750ms ease forwards 500ms; }
+
+@keyframes fallInX {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px); }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+@keyframes fallOffX {
+  0% {
+    opacity: 1;
+    transform: rotateZ(0); }
+
+  100% {
+    opacity: 0;
+    transform: translateY(200px) rotateZ(90deg); } }
+
+.effeckt-list[data-type='from-above'] .new-item {
+  backface-visibility: visible;
+  animation: openSpace 1000ms ease forwards, fromAbove 1000ms both 500ms; }
+
+.effeckt-list[data-type='from-above'] .remove-item {
+  backface-visibility: visible;
+  animation: toAbove 1000ms both, closeSpace 500ms ease forwards 650ms; }
+
+@keyframes fromAbove {
+  0% {
+    opacity: 0;
+    transform: scale(3); }
+
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+
+@keyframes toAbove {
+  0% {
+    opacity: 1;
+    transform: scale(1); }
+
+  100% {
+    opacity: 0;
+    transform: scale(3); } }
+
+.effeckt-list[data-type='wobble-out'] .new-item {
+  backface-visibility: visible;
+  animation: openSpace 1000ms ease forwards, fallInX 1000ms both; }
+
+.effeckt-list[data-type='wobble-out'] .remove-item {
+  backface-visibility: visible;
+  transform-origin: top left;
+  animation: wobbleOutY 1500ms both 500ms, closeSpace 500ms ease forwards 1500ms; }
+
+@keyframes wobbleOutY {
+  0% {
+    opacity: 1;
+    transform: rotateZ(0); }
+
+  20% {
+    opacity: 1;
+    transform: rotateZ(140deg); }
+
+  40% {
+    opacity: 1;
+    transform: rotateZ(60deg); }
+
+  60% {
+    opacity: 1;
+    transform: rotateZ(110deg); }
+
+  70% {
+    opacity: 1;
+    transform: rotateZ(90deg) translateX(0); }
+
+  90% {
+    opacity: 1;
+    transform: rotateZ(90deg) translateX(400px); }
+
+  100% {
+    opacity: 0;
+    transform: rotateZ(90deg) translateX(400px); } }
+
+.effeckt-list[data-type='bouncy-slide-in'] .new-item {
+  backface-visibility: visible;
+  animation: bouncySlideIn 1000ms both, openSpace 500ms ease forwards; }
+
+.effeckt-list[data-type='bouncy-slide-in'] .remove-item {
+  backface-visibility: visible;
+  animation: fallOffY 1500ms both 500ms, closeSpace 500ms ease forwards 1625ms; }
+
+@keyframes bouncySlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(300px); }
+
+  70% {
+    opacity: 1;
+    transform: translateX(-50px); }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes fallOffY {
+  0% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotateZ(0deg); }
+
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) rotateZ(0deg); }
+
+  75% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) rotateZ(-30deg); }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(300px) rotateZ(-60deg); } }
+
 .effeckt-list-scroll {
   position: relative;
   overflow-x: hidden;
@@ -700,7 +889,7 @@
 
 .md-effect-7 .effeckt-modal {
   transform: translateY(-100%);
-  transition: all 0.3s;
+  transition: all .3s;
   opacity: 0; }
 
 .effeckt-show.md-effect-7 .effeckt-modal {
@@ -757,10 +946,10 @@
 
 .effeckt-show.md-effect-12 .effeckt-modal {
   opacity: 1;
-  background: #555555; }
+  background: #555; }
 
 .effeckt-show.md-effect-12 ~ .effeckt-overlay {
-  background: #555555; }
+  background: #555; }
 
 .md-effect-12, .md-effect-12 h3 {
   background: transparent; }
@@ -995,6 +1184,20 @@
   .effeckt-off-screen-nav-left-push ~ .page-wrap {
     transition: 500ms; }
 
+.effeckt-off-screen-nav-left-reveal {
+  width: 0px;
+  transform: translate3D(0, 0, 0);
+  transition: 500ms; }
+  .effeckt-off-screen-nav-left-reveal h4 {
+    width: 10rem; }
+  .effeckt-off-screen-nav-left-reveal.effeckt-off-screen-nav-show {
+    width: 12rem;
+    transform: translateX(0); }
+    .effeckt-off-screen-nav-left-reveal.effeckt-off-screen-nav-show ~ .page-wrap {
+      transform: translateX(12rem); }
+  .effeckt-off-screen-nav-left-reveal ~ .page-wrap {
+    transition: 500ms; }
+
 .effeckt-off-screen-nav-left-squeeze {
   width: 40%;
   transform: translateX(-100%);
@@ -1025,6 +1228,30 @@
     .effeckt-off-screen-nav-right-push.effeckt-off-screen-nav-show ~ .page-wrap {
       transform: translateX(-12rem); }
   .effeckt-off-screen-nav-right-push ~ .page-wrap {
+    transition: 500ms; }
+
+.effeckt-off-screen-nav-right-reveal {
+  width: 0;
+  overflow: hidden;
+  left: auto;
+  right: 0;
+  transform: translate3D(0, 0, 0);
+  transition: 500ms; }
+  .effeckt-off-screen-nav-right-reveal h4 {
+    width: 10rem;
+    position: absolute;
+    top: 0px;
+    right: 0; }
+  .effeckt-off-screen-nav-right-reveal ul {
+    width: 12rem;
+    position: absolute;
+    top: 3.2rem;
+    right: 0; }
+  .effeckt-off-screen-nav-right-reveal.effeckt-off-screen-nav-show {
+    width: 12rem; }
+    .effeckt-off-screen-nav-right-reveal.effeckt-off-screen-nav-show ~ .page-wrap {
+      transform: translateX(-12rem); }
+  .effeckt-off-screen-nav-right-reveal ~ .page-wrap {
     transition: 500ms; }
 
 .effeckt-off-screen-nav-right-squeeze {
@@ -1391,15 +1618,14 @@
 [data-effeckt-tooltip-text] {
   position: relative; }
 
-.effeckt-tooltip-1[data-effeckt-tooltip-text]::before, .effeckt-tooltip-1[data-effeckt-tooltip-text]::after {
+.effeckt-tooltip-top[data-effeckt-tooltip-text]::before, .effeckt-tooltip-top[data-effeckt-tooltip-text]::after {
   opacity: 0;
   transition: 0.2s; }
-.effeckt-tooltip-1[data-effeckt-tooltip-text]::after {
+.effeckt-tooltip-top[data-effeckt-tooltip-text]::after {
   content: attr(data-effeckt-tooltip-text);
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 125%;
   border-radius: 10px;
   background: #333333;
   color: white;
@@ -1407,54 +1633,61 @@
   font-size: 90%;
   white-space: nowrap;
   visibility: hidden; }
-.effeckt-tooltip-1[data-effeckt-tooltip-text]::before {
+.effeckt-tooltip-top[data-effeckt-tooltip-text]::before {
   content: "";
   width: 0;
   height: 0;
-  border-top: 5px solid #333333;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   position: absolute;
-  bottom: 125%;
-  margin-bottom: -4px;
   left: 50%;
   margin-left: -5px; }
-.effeckt-tooltip-1[data-effeckt-tooltip-text]:hover::before, .effeckt-tooltip-1[data-effeckt-tooltip-text]:hover::after {
+.effeckt-tooltip-top[data-effeckt-tooltip-text]:hover::before, .effeckt-tooltip-top[data-effeckt-tooltip-text]:hover::after {
   visibility: visible;
   opacity: 1;
-  bottom: 115%;
   transition: 0.2s 0.3s; }
+.effeckt-tooltip-top[data-effeckt-tooltip-text]::after {
+  bottom: 125%; }
+.effeckt-tooltip-top[data-effeckt-tooltip-text]::before {
+  border-top: 5px solid #333333;
+  bottom: 125%;
+  margin-bottom: -4px; }
+.effeckt-tooltip-top[data-effeckt-tooltip-text]:hover::before, .effeckt-tooltip-top[data-effeckt-tooltip-text]:hover::after {
+  bottom: 115%; }
 
-.effeckt-tooltip-2[data-effeckt-tooltip-text]::before, .effeckt-tooltip-2[data-effeckt-tooltip-text]::after {
+.effeckt-tooltip-bottom[data-effeckt-tooltip-text]::before, .effeckt-tooltip-bottom[data-effeckt-tooltip-text]::after {
   opacity: 0;
-  visibility: hidden;
   transition: 0.2s; }
-.effeckt-tooltip-2[data-effeckt-tooltip-text]::after {
+.effeckt-tooltip-bottom[data-effeckt-tooltip-text]::after {
   content: attr(data-effeckt-tooltip-text);
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 125%;
   border-radius: 10px;
   background: #333333;
   color: white;
   padding: 0.45rem 0.8rem;
   font-size: 90%;
-  white-space: nowrap; }
-.effeckt-tooltip-2[data-effeckt-tooltip-text]::before {
+  white-space: nowrap;
+  visibility: hidden; }
+.effeckt-tooltip-bottom[data-effeckt-tooltip-text]::before {
   content: "";
   width: 0;
   height: 0;
-  border-bottom: 5px solid #333333;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   position: absolute;
-  top: 125%;
-  margin-top: -4px;
   left: 50%;
   margin-left: -5px; }
-.effeckt-tooltip-2[data-effeckt-tooltip-text]:hover::before, .effeckt-tooltip-2[data-effeckt-tooltip-text]:hover::after {
-  opacity: 1;
+.effeckt-tooltip-bottom[data-effeckt-tooltip-text]:hover::before, .effeckt-tooltip-bottom[data-effeckt-tooltip-text]:hover::after {
   visibility: visible;
-  top: 115%;
+  opacity: 1;
   transition: 0.2s 0.3s; }
+.effeckt-tooltip-bottom[data-effeckt-tooltip-text]::after {
+  top: 125%; }
+.effeckt-tooltip-bottom[data-effeckt-tooltip-text]::before {
+  border-bottom: 5px solid #333333;
+  top: 125%;
+  margin-top: -4px; }
+.effeckt-tooltip-bottom[data-effeckt-tooltip-text]:hover::before, .effeckt-tooltip-bottom[data-effeckt-tooltip-text]:hover::after {
+  top: 115%; }
