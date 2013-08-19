@@ -12,7 +12,7 @@ var EffecktOffScreenNav = {
   bindUIActions: function() {
 
     $(".off-screen-nav-button, #effeckt-off-screen-nav-close").on("click", function() {
-      var type = $(this).data("effeckt-type");
+      var type = $(this).data("effeckt");
       var threedee = $(this).data("threedee");
       EffecktOffScreenNav.toggleNav(type, threedee);
     });
@@ -25,7 +25,7 @@ var EffecktOffScreenNav = {
     if (!EffecktOffScreenNav.nav.hasClass("effeckt-off-screen-nav-show")) {
 
       EffecktOffScreenNav.nav.addClass(type);
-      EffecktOffScreenNav.closeButton.data("effeckt-type", type);
+      EffecktOffScreenNav.closeButton.data("effeckt", type);
 
       if (threedee) {
         $("html").addClass("md-perspective");
@@ -42,7 +42,7 @@ var EffecktOffScreenNav = {
 
       setTimeout(function() {
 
-        EffecktOffScreenNav.nav.removeClass(EffecktOffScreenNav.closeButton.data("effeckt-type"));
+        EffecktOffScreenNav.nav.removeClass(EffecktOffScreenNav.closeButton.data("effeckt"));
 
         // WEIRD BUG
         // Have to trigger redraw or it sometimes leaves
