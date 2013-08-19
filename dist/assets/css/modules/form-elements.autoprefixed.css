@@ -12,20 +12,19 @@
   position: relative;
   margin: 0px;
   width: 52px;
-  -webkit-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  -webkit-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  transition: all .3s ease-out;
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
-  /* Adjust size here */
   background: white;
 }
 
 .effeckt-ckbox-ios7[type=checkbox]:checked,
 .effeckt-rdio-ios7:checked {
-  box-shadow: inset 0px 0px 0px 20px #53d76a;
+  box-shadow: inset 0px 0px 0px 20px #666666;
 }
 
 .effeckt-ckbox-ios7[type=checkbox]:after,
@@ -37,9 +36,9 @@
   height: 29px;
   position: absolute;
   width: 29px;
-  -webkit-transition: all 0.1s ease-in 0.1s;
-  -o-transition: all 0.1s ease-in 0.1s;
-  transition: all 0.1s ease-in 0.1s;
+  -webkit-transition: all 0.1s ease-in .1s;
+  -o-transition: all 0.1s ease-in .1s;
+  transition: all 0.1s ease-in .1s;
   background: white;
 }
 
