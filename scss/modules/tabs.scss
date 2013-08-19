@@ -1,14 +1,16 @@
 @import "../_variables";
+@import "../_utils";
 
 .effeckt-tabs-wrap {
 	position: relative;
 
 	ul.effeckt-tabs {
-		margin: 0;
-		padding: 0;
+		//make sure all default style are clear
+		margin:0;
+		padding:0;
 		list-style: none;
 
-		overflow: hidden; // used to be clearfix
+		@extend %clearfix;
 
 		li {
 			float: left;
