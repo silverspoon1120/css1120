@@ -25,35 +25,33 @@ var Modals = {
 
   bindUIActions: function() {
 
-    var self = this;
     $(".modal2-button").on("click", function() {
-      self.openModal(this);
+      Modals.openModal(this);
     });
 
     $(".effeckt-modal-close").on("click", function() {
-      self.closeModal(this);
+      Modals.closeModal(this);
     });
 
     $(".effeckt-overlay").on("click", function() {
-      self.closeModal();
+      Modals.closeModal();
     });
 
     $(window).on("keyup", function(e) {
-      if ( e.keyCode === 27 ) self.closeModal();
+      if ( e.keyCode === 27 ) Modals.closeModal();
     });
 
   },
 
   openModal: function(el) {
 
-    var button = $(el),
-        self = this;
+    var button = $(el);
 
-    this.modalWrap.show();
+    Modals.modalWrap.show();
 
-    this.modalStyle = "md-effect-" + button.data("effeckt-modal-type").replace(/[^0-9]/g, '');
+    Modals.modalStyle = "md-effect-" + button.data("effeckt-modal-type").replace(/[^0-9]/g, '');
 
-    this.modalWrap.addClass(this.modalStyle);
+    Modals.modalWrap.addClass(Modals.modalStyle);
 
     if (button.data("effeckt-needs-perspective")) {
       setTimeout(function () {
@@ -61,45 +59,44 @@ var Modals = {
       }, 50);
     }
     if (button.data("effeckt-hide-class")) {
-      this.modalWrap.data("effeckt-hide-class",true);
+      Modals.modalWrap.data("effeckt-hide-class",true);
     }
-    this.modalWrap.data("effeckt-hide-class", button.data("effeckt-hide-class"));
+    Modals.modalWrap.data("effeckt-hide-class", button.data("effeckt-hide-class"));
 
     var evt = EffecktDemos.animationEndEventName + ' ' + EffecktDemos.transitionEndEventName;
-    this.overlay.on(evt, function () {
-      self.modalWrap.addClass("effeckt-show");
-      self.overlay.off(evt);
+    Modals.overlay.on(evt, function () {
+      Modals.modalWrap.addClass("effeckt-show");
+      Modals.overlay.off(evt);
     });
 
-    this.showOverlay();
+    Modals.showOverlay();
 
   },
 
   closeModal: function(el) {
-    var evt = EffecktDemos.animationEndEventName + ' ' + EffecktDemos.transitionEndEventName,
-        self = this;
+    var evt = EffecktDemos.animationEndEventName + ' ' + EffecktDemos.transitionEndEventName;
 
-    this.modalWrap.on(evt, function () {
-      self.modalWrap.removeClass("effeckt-show effeckt-hide " + self.modalStyle);
+    Modals.modalWrap.on(evt, function () {
+      Modals.modalWrap.removeClass("effeckt-show effeckt-hide " + Modals.modalStyle);
       $("html").removeClass("md-perspective");
-      self.modalWrap.hide().off(evt);
+      Modals.modalWrap.hide().off(evt);
     });
 
-    this.hideOverlay();
+    Modals.hideOverlay();
     //Not the cleanest way
-    this.modalWrap.removeClass("effeckt-show");
+    Modals.modalWrap.removeClass("effeckt-show");
 
-    if( this.modalWrap.data("effeckt-hide-class") ){
-      this.modalWrap.addClass("effeckt-hide");
+    if( Modals.modalWrap.data("effeckt-hide-class") ){
+      Modals.modalWrap.addClass("effeckt-hide");
     }
   },
 
   showOverlay: function() {
-    this.overlay.addClass("effeckt-show");
+    Modals.overlay.addClass("effeckt-show");
   },
 
   hideOverlay: function() {
-    this.overlay.removeClass("effeckt-show");
+    Modals.overlay.removeClass("effeckt-show");
   }
 
 };

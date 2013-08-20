@@ -1103,7 +1103,7 @@ Example markup:
   animation: WobbleInX 2500ms both 500ms, openSpace 500ms ease forwards;
 }
 
-.effeckt-list[data-type='wobble-in'] .remove-item {
+.effeckt-list[data-effeckt-type='wobble-in'] .remove-item {
   -webkit-backface-visibility: visible;
   -ms-backface-visibility: visible;
   -o-backface-visibility: visible;
@@ -1857,7 +1857,7 @@ Example markup:
   }
 
   75% {
-    opacity: 0.75;
+    opacity: 1;
     -webkit-transform: translateX(-50%) translateY(0) rotateZ(-30deg);
     transform: translateX(-50%) translateY(0) rotateZ(-30deg);
   }
@@ -1883,7 +1883,7 @@ Example markup:
   }
 
   75% {
-    opacity: 0.75;
+    opacity: 1;
     -o-transform: translateX(-50%) translateY(0) rotateZ(-30deg);
     transform: translateX(-50%) translateY(0) rotateZ(-30deg);
   }
@@ -1913,7 +1913,7 @@ Example markup:
   }
 
   75% {
-    opacity: 0.75;
+    opacity: 1;
     -webkit-transform: translateX(-50%) translateY(0) rotateZ(-30deg);
     -ms-transform: translateX(-50%) translateY(0) rotateZ(-30deg);
     -o-transform: translateX(-50%) translateY(0) rotateZ(-30deg);

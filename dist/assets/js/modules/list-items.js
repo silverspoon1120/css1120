@@ -8,14 +8,12 @@ var ListItems = {
 
   bindUIActions: function() {
 
-    var self = this;
-
     $(".effeckt-list-wrap button.add").on("click", function() {
-      self.addListItem(this);
+      ListItems.addListItem(this);
     });
 
     $(".effeckt-list-wrap button.remove").on("click", function() {
-      self.removeListItem(this);
+      ListItems.removeListItem(this);
     });
 
     $("button.remove").hide();
