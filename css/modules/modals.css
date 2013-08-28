@@ -91,7 +91,7 @@
 
 /* Effect 6: side fall */
 .md-effect-6.effeckt-modal-wrap {
-  perspective: 1300px;
+  perspective: 600px;
   transform-style: preserve-3d; }
 
 .md-effect-6 .effeckt-modal {
@@ -123,7 +123,7 @@
 
 /* Effect 8: 3D flip horizontal */
 .md-effect-8 {
-  perspective: 1300px;
+  perspective: 600px;
   transform-style: preserve-3d; }
 
 .md-effect-8 .effeckt-modal {
@@ -137,7 +137,7 @@
 
 /* Effect 9: 3D flip vertical */
 .md-effect-9 {
-  perspective: 1300px;
+  perspective: 600px;
   transform-style: preserve-3d; }
 
 .md-effect-9 .effeckt-modal {
@@ -151,7 +151,7 @@
 
 /* Effect 10: 3D sign */
 .md-effect-10 {
-  perspective: 1300px;
+  perspective: 600px;
   transform-style: preserve-3d; }
 
 .md-effect-10 .effeckt-modal {
@@ -181,7 +181,7 @@
 
 /* Effect 13: 3D slit */
 .md-effect-13 {
-  perspective: 1300px;
+  perspective: 600px;
   transform-style: preserve-3d; }
 
 .md-effect-13 .effeckt-modal {
@@ -207,7 +207,7 @@
 
 /* Effect 14:  3D Rotate from bottom */
 .md-effect-14 {
-  perspective: 1300px;
+  perspective: 600px;
   transform-style: preserve-3d; }
 
 .md-effect-14 .effeckt-modal {
@@ -222,7 +222,7 @@
 
 /* Effect 15:  3D Rotate in from left */
 .md-effect-15 {
-  perspective: 1300px;
+  perspective: 600px;
   transform-style: preserve-3d; }
 
 .md-effect-15 .effeckt-modal {
