@@ -16,7 +16,6 @@ var EffecktModals = {
   modalWrap: $("#effeckt-modal-wrap"),
   modal: $("#effeckt-modal"),
   modalStyle: "",
-  isTouchDevice: Modernizr.touch,
 
   init: function() {
     this.bindUIActions();
@@ -24,22 +23,16 @@ var EffecktModals = {
 
   bindUIActions: function() {
 
-    var self = this,
-        evt = 'click';
-
-    if (this.isTouchDevice) {
-      evt += ' touchstart';
-    }
-
-    $(".modal2-button").on(evt, function() {
+    var self = this;
+    $(".modal2-button").on("click", function() {
       self.openModal(this);
     });
 
-    $(".effeckt-modal-close").on(evt, function() {
+    $(".effeckt-modal-close").on("click", function() {
       self.closeModal(this);
     });
 
-    $(".effeckt-overlay").on(evt, function() {
+    $(".effeckt-overlay").on("click", function() {
       self.closeModal();
     });
 
