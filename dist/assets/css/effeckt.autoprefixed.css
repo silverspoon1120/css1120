@@ -270,26 +270,48 @@
   transform: none;
 }
 
+/*==========================
+FILL
+==========================*/
+
+.effeckt-button[data-effeckt-type="fill-from-left"] {
+  overflow: hidden;
+  position: relative;
+}
+
 .effeckt-button[data-effeckt-type="fill-from-left"]:after {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  width: 0;
+  right: 0;
+  width: 100%;
   height: 100%;
   background: black;
-  -webkit-transition: width 500ms;
-  -o-transition: width 500ms;
-  transition: width 500ms;
+  -webkit-transform: translate(-100%, 0);
+  -ms-transform: translate(-100%, 0);
+  -o-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
+  -webkit-transition: -webkit-transform 500ms;
+  -o-transition: -o-transform 500ms;
+  transition: -ms-transform 500ms;
+  transition: transform 500ms;
 }
 
 .effeckt-button[data-effeckt-type="fill-from-left"]:hover:after {
-  width: 100%;
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
 }
 
-.effeckt-button[data-effeckt-type="fill-from-left"] .label {
+.effeckt-button[data-effeckt-type="fill-from-left"] .effeckt-button-label {
   position: relative;
   z-index: 1;
+}
+
+.effeckt-button[data-effeckt-type="fill-from-right"] {
+  overflow: hidden;
+  position: relative;
 }
 
 .effeckt-button[data-effeckt-type="fill-from-right"]:after {
@@ -297,63 +319,97 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 0;
+  width: 100%;
   height: 100%;
   background: black;
-  -webkit-transition: width 500ms;
-  -o-transition: width 500ms;
-  transition: width 500ms;
+  -webkit-transform: translate(100%, 0);
+  -ms-transform: translate(100%, 0);
+  -o-transform: translate(100%, 0);
+  transform: translate(100%, 0);
+  -webkit-transition: -webkit-transform 500ms;
+  -o-transition: -o-transform 500ms;
+  transition: -ms-transform 500ms;
+  transition: transform 500ms;
 }
 
 .effeckt-button[data-effeckt-type="fill-from-right"]:hover:after {
-  width: 100%;
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
 }
 
-.effeckt-button[data-effeckt-type="fill-from-right"] .label {
+.effeckt-button[data-effeckt-type="fill-from-right"] .effeckt-button-label {
   position: relative;
   z-index: 1;
+}
+
+.effeckt-button[data-effeckt-type="fill-from-top"] {
+  overflow: hidden;
+  position: relative;
 }
 
 .effeckt-button[data-effeckt-type="fill-from-top"]:after {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
-  height: 0;
+  height: 100%;
   background: black;
-  -webkit-transition: height 500ms;
-  -o-transition: height 500ms;
-  transition: height 500ms;
+  -webkit-transform: translate(0, -100%);
+  -ms-transform: translate(0, -100%);
+  -o-transform: translate(0, -100%);
+  transform: translate(0, -100%);
+  -webkit-transition: -webkit-transform 500ms;
+  -o-transition: -o-transform 500ms;
+  transition: -ms-transform 500ms;
+  transition: transform 500ms;
 }
 
 .effeckt-button[data-effeckt-type="fill-from-top"]:hover:after {
-  height: 100%;
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
 }
 
-.effeckt-button[data-effeckt-type="fill-from-top"] .label {
+.effeckt-button[data-effeckt-type="fill-from-top"] .effeckt-button-label {
   position: relative;
   z-index: 1;
+}
+
+.effeckt-button[data-effeckt-type="fill-from-bottom"] {
+  overflow: hidden;
+  position: relative;
 }
 
 .effeckt-button[data-effeckt-type="fill-from-bottom"]:after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: 0;
+  right: 0;
   width: 100%;
-  height: 0;
+  height: 100%;
   background: black;
-  -webkit-transition: height 500ms;
-  -o-transition: height 500ms;
-  transition: height 500ms;
+  -webkit-transform: translate(0, 100%);
+  -ms-transform: translate(0, 100%);
+  -o-transform: translate(0, 100%);
+  transform: translate(0, 100%);
+  -webkit-transition: -webkit-transform 500ms;
+  -o-transition: -o-transform 500ms;
+  transition: -ms-transform 500ms;
+  transition: transform 500ms;
 }
 
 .effeckt-button[data-effeckt-type="fill-from-bottom"]:hover:after {
-  height: 100%;
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
 }
 
-.effeckt-button[data-effeckt-type="fill-from-bottom"] .label {
+.effeckt-button[data-effeckt-type="fill-from-bottom"] .effeckt-button-label {
   position: relative;
   z-index: 1;
 }
@@ -2514,26 +2570,9 @@ Example markup:
   Individual modal styles with animations/transitions
 */
 
-.from-above .effeckt-modal {
-  -webkit-transform: scale(1.5);
-  -ms-transform: scale(1.5);
-  -o-transform: scale(1.5);
-  transform: scale(1.5);
-  opacity: 0;
-  -webkit-transition: 500ms;
-  -o-transition: 500ms;
-  transition: 500ms;
-}
+/* Effect 1: From Above */
 
-.effeckt-show.from-above .effeckt-modal {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  -o-transform: scale(1);
-  transform: scale(1);
-  opacity: 1;
-}
-
-.from-below .effeckt-modal {
+.md-effect-1 .effeckt-modal {
   -webkit-transform: scale(0.5);
   -ms-transform: scale(0.5);
   -o-transform: scale(0.5);
@@ -2544,7 +2583,7 @@ Example markup:
   transition: 500ms;
 }
 
-.effeckt-show.from-below .effeckt-modal {
+.effeckt-show.md-effect-1 .effeckt-modal {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   -o-transform: scale(1);
@@ -2552,7 +2591,30 @@ Example markup:
   opacity: 1;
 }
 
-.slide-in-right .effeckt-modal {
+/* Effect 5: From below*/
+
+.md-effect-5 .effeckt-modal {
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  transform: scale(1.5);
+  opacity: 0;
+  -webkit-transition: 500ms;
+  -o-transition: 500ms;
+  transition: 500ms;
+}
+
+.effeckt-show.md-effect-5 .effeckt-modal {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Effect 2: Slide from the right */
+
+.md-effect-2 .effeckt-modal {
   -webkit-transform: translateX(30%);
   -ms-transform: translateX(30%);
   -o-transform: translateX(30%);
@@ -2563,7 +2625,7 @@ Example markup:
   transition: 500ms cubic-bezier(0.25, 0.5, 0.5, 0.9);
 }
 
-.effeckt-show.slide-in-right .effeckt-modal {
+.effeckt-show.md-effect-2 .effeckt-modal {
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
   -o-transform: translateX(0);
@@ -2571,7 +2633,9 @@ Example markup:
   opacity: 1;
 }
 
-.slide-in-bottom .effeckt-modal {
+/* Effect 3: Slide from the bottom */
+
+.md-effect-3 .effeckt-modal {
   -webkit-transform: translateY(30%);
   -ms-transform: translateY(30%);
   -o-transform: translateY(30%);
@@ -2582,7 +2646,7 @@ Example markup:
   transition: 500ms;
 }
 
-.effeckt-show.slide-in-bottom .effeckt-modal {
+.effeckt-show.md-effect-3 .effeckt-modal {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   -o-transform: translateY(0);
@@ -2590,7 +2654,9 @@ Example markup:
   opacity: 1;
 }
 
-.newspaper .effeckt-modal {
+/* Effect 4: Newspaper */
+
+.md-effect-4 .effeckt-modal {
   -webkit-transform: scale(0.5) rotate(720deg);
   -ms-transform: scale(0.5) rotate(720deg);
   -o-transform: scale(0.5) rotate(720deg);
@@ -2601,7 +2667,7 @@ Example markup:
   transition: 0.5s;
 }
 
-.effeckt-show.newspaper .effeckt-modal {
+.effeckt-show.md-effect-4 .effeckt-modal {
   -webkit-transform: scale(1) rotate(0deg);
   -ms-transform: scale(1) rotate(0deg);
   -o-transform: scale(1) rotate(0deg);
@@ -2609,7 +2675,9 @@ Example markup:
   opacity: 1;
 }
 
-.side-fall.effeckt-modal-wrap {
+/* Effect 6: side fall */
+
+.md-effect-6.effeckt-modal-wrap {
   -webkit-perspective: 600px;
   -ms-perspective: 600px;
   -o-perspective: 600px;
@@ -2620,7 +2688,7 @@ Example markup:
   transform-style: preserve-3d;
 }
 
-.side-fall .effeckt-modal {
+.md-effect-6 .effeckt-modal {
   -webkit-transform: translateZ(600px) translateX(30%) rotate(10deg);
   -ms-transform: translateZ(600px) translateX(30%) rotate(10deg);
   -o-transform: translateZ(600px) translateX(30%) rotate(10deg);
@@ -2628,7 +2696,7 @@ Example markup:
   opacity: 0;
 }
 
-.effeckt-show.side-fall .effeckt-modal {
+.effeckt-show.md-effect-6 .effeckt-modal {
   -webkit-transition: 500ms ease-in;
   -o-transition: 500ms ease-in;
   transition: 500ms ease-in;
@@ -2639,14 +2707,16 @@ Example markup:
   opacity: 1;
 }
 
-.effeckt-hide.side-fall .effeckt-modal {
+.effeckt-hide.md-effect-6 .effeckt-modal {
   -webkit-transition: all 500ms ease-out;
   -o-transition: all 500ms ease-out;
   transition: all 500ms ease-out;
   opacity: 0;
 }
 
-.sticky-up {
+/* Effect 7:  slide and stick to top */
+
+.md-effect-7 {
   top: 0;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
@@ -2654,7 +2724,7 @@ Example markup:
   transform: translateX(-50%);
 }
 
-.sticky-up .effeckt-modal {
+.md-effect-7 .effeckt-modal {
   -webkit-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
   -o-transform: translateY(-100%);
@@ -2665,7 +2735,7 @@ Example markup:
   opacity: 0;
 }
 
-.effeckt-show.sticky-up .effeckt-modal {
+.effeckt-show.md-effect-7 .effeckt-modal {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   -o-transform: translateY(0);
@@ -2673,7 +2743,9 @@ Example markup:
   opacity: 1;
 }
 
-.flip-horizontal-3D {
+/* Effect 8: 3D flip horizontal */
+
+.md-effect-8 {
   -webkit-perspective: 600px;
   -ms-perspective: 600px;
   -o-perspective: 600px;
@@ -2684,7 +2756,7 @@ Example markup:
   transform-style: preserve-3d;
 }
 
-.flip-horizontal-3D .effeckt-modal {
+.md-effect-8 .effeckt-modal {
   -webkit-transform: rotateY(-70deg);
   -ms-transform: rotateY(-70deg);
   -o-transform: rotateY(-70deg);
@@ -2695,7 +2767,7 @@ Example markup:
   opacity: 0;
 }
 
-.effeckt-show.flip-horizontal-3D .effeckt-modal {
+.effeckt-show.md-effect-8 .effeckt-modal {
   -webkit-transform: rotateY(0deg);
   -ms-transform: rotateY(0deg);
   -o-transform: rotateY(0deg);
@@ -2703,7 +2775,9 @@ Example markup:
   opacity: 1;
 }
 
-.flip-vertical-3D {
+/* Effect 9: 3D flip vertical */
+
+.md-effect-9 {
   -webkit-perspective: 600px;
   -ms-perspective: 600px;
   -o-perspective: 600px;
@@ -2714,7 +2788,7 @@ Example markup:
   transform-style: preserve-3d;
 }
 
-.flip-vertical-3D .effeckt-modal {
+.md-effect-9 .effeckt-modal {
   -webkit-transform: rotateX(-70deg);
   -ms-transform: rotateX(-70deg);
   -o-transform: rotateX(-70deg);
@@ -2725,7 +2799,7 @@ Example markup:
   opacity: 0;
 }
 
-.effeckt-show.flip-vertical-3D .effeckt-modal {
+.effeckt-show.md-effect-9 .effeckt-modal {
   -webkit-transform: rotateX(0deg);
   -ms-transform: rotateX(0deg);
   -o-transform: rotateX(0deg);
@@ -2733,7 +2807,9 @@ Example markup:
   opacity: 1;
 }
 
-.sign-3D {
+/* Effect 10: 3D sign */
+
+.md-effect-10 {
   -webkit-perspective: 600px;
   -ms-perspective: 600px;
   -o-perspective: 600px;
@@ -2744,7 +2820,7 @@ Example markup:
   transform-style: preserve-3d;
 }
 
-.sign-3D .effeckt-modal {
+.md-effect-10 .effeckt-modal {
   -webkit-transform: rotateX(-60deg);
   -ms-transform: rotateX(-60deg);
   -o-transform: rotateX(-60deg);
@@ -2759,7 +2835,7 @@ Example markup:
   transition: 500ms;
 }
 
-.effeckt-show.sign-3D .effeckt-modal {
+.effeckt-show.md-effect-10 .effeckt-modal {
   -webkit-transform: rotateX(0deg);
   -ms-transform: rotateX(0deg);
   -o-transform: rotateX(0deg);
@@ -2767,28 +2843,32 @@ Example markup:
   opacity: 1;
 }
 
-.just-me .effeckt-modal {
+/* Effect 12:  Just me */
+
+.md-effect-12 .effeckt-modal {
   opacity: 0;
   -webkit-transition: 500ms;
   -o-transition: 500ms;
   transition: 500ms;
 }
 
-.effeckt-show.just-me .effeckt-modal {
+.effeckt-show.md-effect-12 .effeckt-modal {
   opacity: 1;
   background: #555555;
 }
 
-.effeckt-show.just-me ~ .effeckt-overlay {
+.effeckt-show.md-effect-12 ~ .effeckt-overlay {
   background: #555555;
 }
 
-.just-me,
-.just-me h3 {
+.md-effect-12,
+.md-effect-12 h3 {
   background: transparent;
 }
 
-.slit-3D {
+/* Effect 13: 3D slit */
+
+.md-effect-13 {
   -webkit-perspective: 600px;
   -ms-perspective: 600px;
   -o-perspective: 600px;
@@ -2799,7 +2879,7 @@ Example markup:
   transform-style: preserve-3d;
 }
 
-.slit-3D .effeckt-modal {
+.md-effect-13 .effeckt-modal {
   -webkit-transform: translateZ(-3000px) rotateY(90deg);
   -ms-transform: translateZ(-3000px) rotateY(90deg);
   -o-transform: translateZ(-3000px) rotateY(90deg);
@@ -2807,20 +2887,20 @@ Example markup:
   opacity: 0;
 }
 
-.effeckt-show.slit-3D .effeckt-modal {
-  -webkit-animation: modalSlit 0.7s forwards ease-out;
-  -o-animation: modalSlit 0.7s forwards ease-out;
-  animation: modalSlit 0.7s forwards ease-out;
+.effeckt-show.md-effect-13 .effeckt-modal {
+  -webkit-animation: slit 0.7s forwards ease-out;
+  -o-animation: slit 0.7s forwards ease-out;
+  animation: slit 0.7s forwards ease-out;
 }
 
-.effeckt-hide.slit-3D .effeckt-modal {
+.effeckt-hide.md-effect-13 .effeckt-modal {
   opacity: 0;
   -webkit-transition: 500ms;
   -o-transition: 500ms;
   transition: 500ms;
 }
 
-@-webkit-keyframes modalSlit {
+@-webkit-keyframes slit {
   50% {
     -webkit-transform: translateZ(-250px) rotateY(89deg);
     transform: translateZ(-250px) rotateY(89deg);
@@ -2836,7 +2916,7 @@ Example markup:
   }
 }
 
-@-o-keyframes modalSlit {
+@-o-keyframes slit {
   50% {
     -o-transform: translateZ(-250px) rotateY(89deg);
     transform: translateZ(-250px) rotateY(89deg);
@@ -2852,7 +2932,7 @@ Example markup:
   }
 }
 
-@keyframes modalSlit {
+@keyframes slit {
   50% {
     -webkit-transform: translateZ(-250px) rotateY(89deg);
     -ms-transform: translateZ(-250px) rotateY(89deg);
@@ -2873,7 +2953,9 @@ Example markup:
   }
 }
 
-.rotate-from-bottom-3D {
+/* Effect 14:  3D Rotate from bottom */
+
+.md-effect-14 {
   -webkit-perspective: 600px;
   -ms-perspective: 600px;
   -o-perspective: 600px;
@@ -2884,7 +2966,7 @@ Example markup:
   transform-style: preserve-3d;
 }
 
-.rotate-from-bottom-3D .effeckt-modal {
+.md-effect-14 .effeckt-modal {
   -webkit-transform: translateY(100%) rotateX(90deg);
   -ms-transform: translateY(100%) rotateX(90deg);
   -o-transform: translateY(100%) rotateX(90deg);
@@ -2899,7 +2981,7 @@ Example markup:
   transition: all 500ms ease-out;
 }
 
-.effeckt-show.rotate-from-bottom-3D .effeckt-modal {
+.effeckt-show.md-effect-14 .effeckt-modal {
   -webkit-transform: translateY(0%) rotateX(0deg);
   -ms-transform: translateY(0%) rotateX(0deg);
   -o-transform: translateY(0%) rotateX(0deg);
@@ -2907,7 +2989,9 @@ Example markup:
   opacity: 1;
 }
 
-.rotate-from-left-3D {
+/* Effect 15:  3D Rotate in from left */
+
+.md-effect-15 {
   -webkit-perspective: 600px;
   -ms-perspective: 600px;
   -o-perspective: 600px;
@@ -2918,7 +3002,7 @@ Example markup:
   transform-style: preserve-3d;
 }
 
-.rotate-from-left-3D .effeckt-modal {
+.md-effect-15 .effeckt-modal {
   -webkit-transform: translateZ(100px) translateX(-30%) rotateY(90deg);
   -ms-transform: translateZ(100px) translateX(-30%) rotateY(90deg);
   -o-transform: translateZ(100px) translateX(-30%) rotateY(90deg);
@@ -2933,7 +3017,7 @@ Example markup:
   transition: all 500ms;
 }
 
-.effeckt-show.rotate-from-left-3D .effeckt-modal {
+.effeckt-show.md-effect-15 .effeckt-modal {
   -webkit-transform: translateZ(0px) translateX(0%) rotateY(0deg);
   -ms-transform: translateZ(0px) translateX(0%) rotateY(0deg);
   -o-transform: translateZ(0px) translateX(0%) rotateY(0deg);
@@ -2941,31 +3025,35 @@ Example markup:
   opacity: 1;
 }
 
-.effeckt-show.blur ~ .md-overlay {
+/* Effect 16:  Blur */
+
+.effeckt-show.md-effect-16 ~ .md-overlay {
   background: rgba(180, 46, 32, 0.5);
 }
 
-.effeckt-show.blur ~ [data-effeckt-page] {
+.effeckt-show.md-effect-16 ~ [data-effeckt-page] {
   -webkit-filter: blur(3px);
   filter: blur(3px);
 }
 
-.blur .effeckt-modal {
+.md-effect-16 .effeckt-modal {
   opacity: 0;
 }
 
-.effeckt-show.blur ~ [data-effeckt-page],
-.blur .effeckt-modal {
+.effeckt-show.md-effect-16 ~ [data-effeckt-page],
+.md-effect-16 .effeckt-modal {
   -webkit-transition: all 500ms;
   -o-transition: all 500ms;
   transition: all 500ms;
 }
 
-.effeckt-show.blur .effeckt-modal {
+.effeckt-show.md-effect-16 .effeckt-modal {
   opacity: 1;
 }
 
-.effeckt-show.let-me-in ~ [data-effeckt-page] {
+/* Effect 17:  Slide in from bottom with perspective on container */
+
+.effeckt-show.md-effect-17 ~ [data-effeckt-page] {
   height: 100%;
   overflow: hidden;
   -webkit-transition: -webkit-transform 500ms;
@@ -2974,8 +3062,8 @@ Example markup:
   transition: transform 500ms;
 }
 
-.effeckt-show.let-me-in ~ [data-effeckt-page],
-.effeckt-show.let-me-in ~ .effeckt-overlay {
+.effeckt-show.md-effect-17 ~ [data-effeckt-page],
+.effeckt-show.md-effect-17 ~ .effeckt-overlay {
   -webkit-transform: rotateX(-2deg);
   -ms-transform: rotateX(-2deg);
   -o-transform: rotateX(-2deg);
@@ -2990,7 +3078,7 @@ Example markup:
   transform-style: preserve-3d;
 }
 
-.let-me-in .effeckt-modal {
+.md-effect-17 .effeckt-modal {
   opacity: 0;
   -webkit-transform: translateY(200%);
   -ms-transform: translateY(200%);
@@ -3001,7 +3089,7 @@ Example markup:
   transition: all 500ms 0.2s;
 }
 
-.effeckt-show.let-me-in .effeckt-modal {
+.effeckt-show.md-effect-17 .effeckt-modal {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
@@ -3012,27 +3100,29 @@ Example markup:
   transition: all 500ms 0.2s;
 }
 
-.effeckt-hide.let-me-in .effeckt-modal {
+.effeckt-hide.md-effect-17 .effeckt-modal {
   opacity: 0;
   -webkit-transition: all 500ms 0.2s;
   -o-transition: all 500ms 0.2s;
   transition: all 500ms 0.2s;
 }
 
-.effeckt-show.make-way ~ [data-effeckt-page] {
+/* Effect 18:  Slide from right with perspective on container */
+
+.effeckt-show.md-effect-18 ~ [data-effeckt-page] {
   height: 100%;
   overflow: hidden;
 }
 
-.effeckt-show.make-way ~ .effeckt-overlay {
+.effeckt-show.md-effect-18 ~ .effeckt-overlay {
   background: rgba(0, 0, 0, 0.2);
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
 }
 
-.effeckt-show.make-way ~ [data-effeckt-page],
-.effeckt-show.make-way ~ .effeckt-overlay {
+.effeckt-show.md-effect-18 ~ [data-effeckt-page],
+.effeckt-show.md-effect-18 ~ .effeckt-overlay {
   -webkit-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
@@ -3041,41 +3131,12 @@ Example markup:
   -ms-transform-origin: 0% 50%;
   -o-transform-origin: 0% 50%;
   transform-origin: 0% 50%;
-  -webkit-animation: makeWay 0.5s forwards ease-in;
-  -o-animation: makeWay 0.5s forwards ease-in;
-  animation: makeWay 0.5s forwards ease-in;
+  -webkit-animation: rotateRightSideFirst 0.5s forwards ease-in;
+  -o-animation: rotateRightSideFirst 0.5s forwards ease-in;
+  animation: rotateRightSideFirst 0.5s forwards ease-in;
 }
 
-.make-way .effeckt-modal {
-  -webkit-transform: translateX(200%);
-  -ms-transform: translateX(200%);
-  -o-transform: translateX(200%);
-  transform: translateX(200%);
-  opacity: 0;
-  -webkit-transition: 0.5s 0.1s;
-  -o-transition: 0.5s 0.1s;
-  transition: 0.5s 0.1s;
-}
-
-.effeckt-show.make-way .effeckt-modal {
-  -webkit-transform: translateX(0);
-  -ms-transform: translateX(0);
-  -o-transform: translateX(0);
-  transform: translateX(0);
-  opacity: 1;
-  -webkit-transition: 0.5s 0.1s;
-  -o-transition: 0.5s 0.1s;
-  transition: 0.5s 0.1s;
-}
-
-.effeckt-hide.make-way .effeckt-modal {
-  opacity: 0;
-  -webkit-transition: 0.5s 0.1s;
-  -o-transition: 0.5s 0.1s;
-  transition: 0.5s 0.1s;
-}
-
-@-webkit-keyframes makeWay {
+@-webkit-keyframes rotateRightSideFirst {
   50% {
     -webkit-transform: translateZ(-50px) rotateY(5deg);
     transform: translateZ(-50px) rotateY(5deg);
@@ -3089,7 +3150,7 @@ Example markup:
   }
 }
 
-@-o-keyframes makeWay {
+@-o-keyframes rotateRightSideFirst {
   50% {
     -o-transform: translateZ(-50px) rotateY(5deg);
     transform: translateZ(-50px) rotateY(5deg);
@@ -3103,7 +3164,7 @@ Example markup:
   }
 }
 
-@keyframes makeWay {
+@keyframes rotateRightSideFirst {
   50% {
     -webkit-transform: translateZ(-50px) rotateY(5deg);
     -ms-transform: translateZ(-50px) rotateY(5deg);
@@ -3122,19 +3183,50 @@ Example markup:
   }
 }
 
-.effeckt-show.slip-in-from-top ~ [data-effeckt-page] {
+.md-effect-18 .effeckt-modal {
+  -webkit-transform: translateX(200%);
+  -ms-transform: translateX(200%);
+  -o-transform: translateX(200%);
+  transform: translateX(200%);
+  opacity: 0;
+  -webkit-transition: 0.5s 0.1s;
+  -o-transition: 0.5s 0.1s;
+  transition: 0.5s 0.1s;
+}
+
+.effeckt-show.md-effect-18 .effeckt-modal {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+  -webkit-transition: 0.5s 0.1s;
+  -o-transition: 0.5s 0.1s;
+  transition: 0.5s 0.1s;
+}
+
+.effeckt-hide.md-effect-18 .effeckt-modal {
+  opacity: 0;
+  -webkit-transition: 0.5s 0.1s;
+  -o-transition: 0.5s 0.1s;
+  transition: 0.5s 0.1s;
+}
+
+/* Effect 19:  Slip in from the top with perspective on container */
+
+.effeckt-show.md-effect-19 ~ [data-effeckt-page] {
   height: 100%;
   overflow: hidden;
 }
 
-.effeckt-show.slip-in-from-top ~ .effeckt-overlay {
+.effeckt-show.md-effect-19 ~ .effeckt-overlay {
   -webkit-transition: 500ms;
   -o-transition: 500ms;
   transition: 500ms;
 }
 
-.effeckt-show.slip-in-from-top ~ [data-effeckt-page],
-.effeckt-show.slip-in-from-top ~ .effeckt-overlay {
+.effeckt-show.md-effect-19 ~ [data-effeckt-page],
+.effeckt-show.md-effect-19 ~ .effeckt-overlay {
   -webkit-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
@@ -3148,36 +3240,10 @@ Example markup:
   animation: OpenTop 500ms forwards ease-in;
 }
 
-.slip-in-from-top .effeckt-modal {
+.md-effect-19 .effeckt-modal {
   -webkit-transition: 500ms;
   -o-transition: 500ms;
   transition: 500ms;
-}
-
-.slip-in-from-top .effeckt-modal {
-  -webkit-transform: translateY(-200%);
-  -ms-transform: translateY(-200%);
-  -o-transform: translateY(-200%);
-  transform: translateY(-200%);
-  opacity: 0;
-}
-
-.effeckt-show.slip-in-from-top .effeckt-modal {
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
-  -o-transform: translateY(0);
-  transform: translateY(0);
-  opacity: 1;
-  -webkit-transition: all 500ms 100ms;
-  -o-transition: all 500ms 100ms;
-  transition: all 500ms 100ms;
-}
-
-.effeckt-hide.slip-in-from-top .effeckt-modal {
-  opacity: 0;
-  -webkit-transition: all 500ms 100ms;
-  -o-transition: all 500ms 100ms;
-  transition: all 500ms 100ms;
 }
 
 @-webkit-keyframes OpenTop {
@@ -3210,7 +3276,35 @@ Example markup:
   }
 }
 
-.tilt-fall .effeckt-modal {
+.md-effect-19 .effeckt-modal {
+  -webkit-transform: translateY(-200%);
+  -ms-transform: translateY(-200%);
+  -o-transform: translateY(-200%);
+  transform: translateY(-200%);
+  opacity: 0;
+}
+
+.effeckt-show.md-effect-19 .effeckt-modal {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+  -webkit-transition: all 500ms 100ms;
+  -o-transition: all 500ms 100ms;
+  transition: all 500ms 100ms;
+}
+
+.effeckt-hide.md-effect-19 .effeckt-modal {
+  opacity: 0;
+  -webkit-transition: all 500ms 100ms;
+  -o-transition: all 500ms 100ms;
+  transition: all 500ms 100ms;
+}
+
+/* Effect 20: From the top to bottom with left tilt on the way out */
+
+.md-effect-20 .effeckt-modal {
   -webkit-transition: 500ms ease-in-out;
   -o-transition: 500ms ease-in-out;
   transition: 500ms ease-in-out;
@@ -3221,7 +3315,7 @@ Example markup:
   opacity: 0;
 }
 
-.effeckt-show.tilt-fall .effeckt-modal {
+.effeckt-show.md-effect-20 .effeckt-modal {
   opacity: 1;
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
@@ -3229,7 +3323,7 @@ Example markup:
   transform: translateY(0);
 }
 
-.effeckt-hide.tilt-fall .effeckt-modal {
+.effeckt-hide.md-effect-20 .effeckt-modal {
   -webkit-transform: translateY(100%) rotate(-25deg);
   -ms-transform: translateY(100%) rotate(-25deg);
   -o-transform: translateY(100%) rotate(-25deg);
@@ -3237,7 +3331,9 @@ Example markup:
   opacity: 0;
 }
 
-.from-top-to-bottom .effeckt-modal {
+/* Effect 22: From the top to bottom */
+
+.md-effect-22 .effeckt-modal {
   -webkit-transition: 500ms ease-in-out;
   -o-transition: 500ms ease-in-out;
   transition: 500ms ease-in-out;
@@ -3248,7 +3344,7 @@ Example markup:
   opacity: 0;
 }
 
-.effeckt-show.from-top-to-bottom .effeckt-modal {
+.effeckt-show.md-effect-22 .effeckt-modal {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   -o-transform: translateY(0);
@@ -3256,7 +3352,7 @@ Example markup:
   opacity: 1;
 }
 
-.effeckt-hide.from-top-to-bottom .effeckt-modal {
+.effeckt-hide.md-effect-22 .effeckt-modal {
   -webkit-transform: translateY(100%);
   -ms-transform: translateY(100%);
   -o-transform: translateY(100%);
@@ -3264,7 +3360,9 @@ Example markup:
   opacity: 0;
 }
 
-.from-top-to-top .effeckt-modal {
+/* Effect 24: From the top to top */
+
+.md-effect-24 .effeckt-modal {
   -webkit-transition: 500ms ease-in-out;
   -o-transition: 500ms ease-in-out;
   transition: 500ms ease-in-out;
@@ -3275,7 +3373,7 @@ Example markup:
   transform: translateY(-100%);
 }
 
-.effeckt-show.from-top-to-top .effeckt-modal {
+.effeckt-show.md-effect-24 .effeckt-modal {
   opacity: 1;
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
@@ -3283,602 +3381,12 @@ Example markup:
   transform: translateY(0);
 }
 
-.effeckt-hide.from-top-to-top .effeckt-modal {
+.effeckt-hide.md-effect-24 .effeckt-modal {
   opacity: 0;
   -webkit-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
   -o-transform: translateY(-100%);
   transform: translateY(-100%);
-}
-
-.shake .effeckt-modal {
-  -webkit-transition: 500ms ease-in-out;
-  -o-transition: 500ms ease-in-out;
-  transition: 500ms ease-in-out;
-  opacity: 0;
-}
-
-.effeckt-show.shake .effeckt-modal {
-  opacity: 1;
-  -webkit-animation: modalShake 1s forwards ease;
-  -o-animation: modalShake 1s forwards ease;
-  animation: modalShake 1s forwards ease;
-}
-
-.effeckt-hide.shake .effeckt-modal {
-  opacity: 0;
-}
-
-@-webkit-keyframes modalShake {
-  0%, 100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-
-  10%, 30%, 50%, 70%, 90% {
-    -webkit-transform: translateX(-10px);
-    transform: translateX(-10px);
-  }
-
-  20%, 40%, 60%, 80% {
-    -webkit-transform: translateX(10px);
-    transform: translateX(10px);
-  }
-}
-
-@-o-keyframes modalShake {
-  0%, 100% {
-    -o-transform: translateX(0);
-    transform: translateX(0);
-  }
-
-  10%, 30%, 50%, 70%, 90% {
-    -o-transform: translateX(-10px);
-    transform: translateX(-10px);
-  }
-
-  20%, 40%, 60%, 80% {
-    -o-transform: translateX(10px);
-    transform: translateX(10px);
-  }
-}
-
-@keyframes modalShake {
-  0%, 100% {
-    -webkit-transform: translateX(0);
-    -ms-transform: translateX(0);
-    -o-transform: translateX(0);
-    transform: translateX(0);
-  }
-
-  10%, 30%, 50%, 70%, 90% {
-    -webkit-transform: translateX(-10px);
-    -ms-transform: translateX(-10px);
-    -o-transform: translateX(-10px);
-    transform: translateX(-10px);
-  }
-
-  20%, 40%, 60%, 80% {
-    -webkit-transform: translateX(10px);
-    -ms-transform: translateX(10px);
-    -o-transform: translateX(10px);
-    transform: translateX(10px);
-  }
-}
-
-.bounce .effeckt-modal {
-  -webkit-transition: 500ms ease-in-out;
-  -o-transition: 500ms ease-in-out;
-  transition: 500ms ease-in-out;
-  opacity: 0;
-}
-
-.effeckt-show.bounce .effeckt-modal {
-  opacity: 1;
-  -webkit-animation: modalBounce 1s forwards ease;
-  -o-animation: modalBounce 1s forwards ease;
-  animation: modalBounce 1s forwards ease;
-}
-
-.effeckt-hide.bounce .effeckt-modal {
-  opacity: 0;
-}
-
-@-webkit-keyframes modalBounce {
-  0%, 20%, 50%, 80%, 100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-
-  40% {
-    -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-
-  60% {
-    -webkit-transform: translateY(-15px);
-    transform: translateY(-15px);
-  }
-}
-
-@-o-keyframes modalBounce {
-  0%, 20%, 50%, 80%, 100% {
-    -o-transform: translateY(0);
-    transform: translateY(0);
-  }
-
-  40% {
-    -o-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-
-  60% {
-    -o-transform: translateY(-15px);
-    transform: translateY(-15px);
-  }
-}
-
-@keyframes modalBounce {
-  0%, 20%, 50%, 80%, 100% {
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0);
-  }
-
-  40% {
-    -webkit-transform: translateY(-30px);
-    -ms-transform: translateY(-30px);
-    -o-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-
-  60% {
-    -webkit-transform: translateY(-15px);
-    -ms-transform: translateY(-15px);
-    -o-transform: translateY(-15px);
-    transform: translateY(-15px);
-  }
-}
-
-.pulse .effeckt-modal {
-  -webkit-transition: 500ms ease-in-out;
-  -o-transition: 500ms ease-in-out;
-  transition: 500ms ease-in-out;
-  opacity: 0;
-}
-
-.effeckt-show.pulse .effeckt-modal {
-  opacity: 1;
-  -webkit-animation: modalPulse 1s forwards ease;
-  -o-animation: modalPulse 1s forwards ease;
-  animation: modalPulse 1s forwards ease;
-}
-
-.effeckt-hide.pulse .effeckt-modal {
-  opacity: 0;
-}
-
-@-webkit-keyframes modalPulse {
-  0% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-
-  50% {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-  }
-
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-
-@-o-keyframes modalPulse {
-  0% {
-    -o-transform: scale(1);
-    transform: scale(1);
-  }
-
-  50% {
-    -o-transform: scale(1.1);
-    transform: scale(1.1);
-  }
-
-  100% {
-    -o-transform: scale(1);
-    transform: scale(1);
-  }
-}
-
-@keyframes modalPulse {
-  0% {
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1);
-  }
-
-  50% {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    transform: scale(1.1);
-  }
-
-  100% {
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1);
-  }
-}
-
-.wobble .effeckt-modal {
-  -webkit-transition: 500ms ease-in-out;
-  -o-transition: 500ms ease-in-out;
-  transition: 500ms ease-in-out;
-  opacity: 0;
-}
-
-.effeckt-show.wobble .effeckt-modal {
-  opacity: 1;
-  -webkit-animation: modalWobble 1s forwards ease;
-  -o-animation: modalWobble 1s forwards ease;
-  animation: modalWobble 1s forwards ease;
-}
-
-.effeckt-hide.wobble .effeckt-modal {
-  opacity: 0;
-}
-
-@-webkit-keyframes modalWobble {
-  0% {
-    -webkit-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  15% {
-    -webkit-transform: translateX(-25%) rotate(-5deg);
-    transform: translateX(-25%) rotate(-5deg);
-  }
-
-  30% {
-    -webkit-transform: translateX(20%) rotate(3deg);
-    transform: translateX(20%) rotate(3deg);
-  }
-
-  45% {
-    -webkit-transform: translateX(-15%) rotate(-3deg);
-    transform: translateX(-15%) rotate(-3deg);
-  }
-
-  60% {
-    -webkit-transform: translateX(10%) rotate(2deg);
-    transform: translateX(10%) rotate(2deg);
-  }
-
-  75% {
-    -webkit-transform: translateX(-5%) rotate(-1deg);
-    transform: translateX(-5%) rotate(-1deg);
-  }
-
-  100% {
-    -webkit-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-}
-
-@-o-keyframes modalWobble {
-  0% {
-    -o-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  15% {
-    -o-transform: translateX(-25%) rotate(-5deg);
-    transform: translateX(-25%) rotate(-5deg);
-  }
-
-  30% {
-    -o-transform: translateX(20%) rotate(3deg);
-    transform: translateX(20%) rotate(3deg);
-  }
-
-  45% {
-    -o-transform: translateX(-15%) rotate(-3deg);
-    transform: translateX(-15%) rotate(-3deg);
-  }
-
-  60% {
-    -o-transform: translateX(10%) rotate(2deg);
-    transform: translateX(10%) rotate(2deg);
-  }
-
-  75% {
-    -o-transform: translateX(-5%) rotate(-1deg);
-    transform: translateX(-5%) rotate(-1deg);
-  }
-
-  100% {
-    -o-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-}
-
-@keyframes modalWobble {
-  0% {
-    -webkit-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    -o-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  15% {
-    -webkit-transform: translateX(-25%) rotate(-5deg);
-    -ms-transform: translateX(-25%) rotate(-5deg);
-    -o-transform: translateX(-25%) rotate(-5deg);
-    transform: translateX(-25%) rotate(-5deg);
-  }
-
-  30% {
-    -webkit-transform: translateX(20%) rotate(3deg);
-    -ms-transform: translateX(20%) rotate(3deg);
-    -o-transform: translateX(20%) rotate(3deg);
-    transform: translateX(20%) rotate(3deg);
-  }
-
-  45% {
-    -webkit-transform: translateX(-15%) rotate(-3deg);
-    -ms-transform: translateX(-15%) rotate(-3deg);
-    -o-transform: translateX(-15%) rotate(-3deg);
-    transform: translateX(-15%) rotate(-3deg);
-  }
-
-  60% {
-    -webkit-transform: translateX(10%) rotate(2deg);
-    -ms-transform: translateX(10%) rotate(2deg);
-    -o-transform: translateX(10%) rotate(2deg);
-    transform: translateX(10%) rotate(2deg);
-  }
-
-  75% {
-    -webkit-transform: translateX(-5%) rotate(-1deg);
-    -ms-transform: translateX(-5%) rotate(-1deg);
-    -o-transform: translateX(-5%) rotate(-1deg);
-    transform: translateX(-5%) rotate(-1deg);
-  }
-
-  100% {
-    -webkit-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    -o-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-}
-
-.swing .effeckt-modal {
-  -webkit-transform-origin: 50% 0%;
-  -ms-transform-origin: 50% 0%;
-  -o-transform-origin: 50% 0%;
-  transform-origin: 50% 0%;
-  -webkit-transition: 500ms ease-in-out;
-  -o-transition: 500ms ease-in-out;
-  transition: 500ms ease-in-out;
-  opacity: 0;
-}
-
-.effeckt-show.swing .effeckt-modal {
-  opacity: 1;
-  -webkit-animation: modalSwing 1s forwards ease;
-  -o-animation: modalSwing 1s forwards ease;
-  animation: modalSwing 1s forwards ease;
-}
-
-.effeckt-hide.swing .effeckt-modal {
-  opacity: 0;
-}
-
-@-webkit-keyframes modalSwing {
-  20% {
-    -webkit-transform: rotate(15deg);
-    transform: rotate(15deg);
-  }
-
-  40% {
-    -webkit-transform: rotate(-10deg);
-    transform: rotate(-10deg);
-  }
-
-  60% {
-    -webkit-transform: rotate(5deg);
-    transform: rotate(5deg);
-  }
-
-  80% {
-    -webkit-transform: rotate(-5deg);
-    transform: rotate(-5deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}
-
-@-o-keyframes modalSwing {
-  20% {
-    -o-transform: rotate(15deg);
-    transform: rotate(15deg);
-  }
-
-  40% {
-    -o-transform: rotate(-10deg);
-    transform: rotate(-10deg);
-  }
-
-  60% {
-    -o-transform: rotate(5deg);
-    transform: rotate(5deg);
-  }
-
-  80% {
-    -o-transform: rotate(-5deg);
-    transform: rotate(-5deg);
-  }
-
-  100% {
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes modalSwing {
-  20% {
-    -webkit-transform: rotate(15deg);
-    -ms-transform: rotate(15deg);
-    -o-transform: rotate(15deg);
-    transform: rotate(15deg);
-  }
-
-  40% {
-    -webkit-transform: rotate(-10deg);
-    -ms-transform: rotate(-10deg);
-    -o-transform: rotate(-10deg);
-    transform: rotate(-10deg);
-  }
-
-  60% {
-    -webkit-transform: rotate(5deg);
-    -ms-transform: rotate(5deg);
-    -o-transform: rotate(5deg);
-    transform: rotate(5deg);
-  }
-
-  80% {
-    -webkit-transform: rotate(-5deg);
-    -ms-transform: rotate(-5deg);
-    -o-transform: rotate(-5deg);
-    transform: rotate(-5deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}
-
-.tada .effeckt-modal {
-  -webkit-transition: 500ms ease-in-out;
-  -o-transition: 500ms ease-in-out;
-  transition: 500ms ease-in-out;
-  opacity: 0;
-}
-
-.effeckt-show.tada .effeckt-modal {
-  opacity: 1;
-  -webkit-animation: modalTada 1s forwards ease;
-  -o-animation: modalTada 1s forwards ease;
-  animation: modalTada 1s forwards ease;
-}
-
-.effeckt-hide.tada .effeckt-modal {
-  opacity: 0;
-}
-
-@-webkit-keyframes modalTada {
-  0% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-
-  10%, 20% {
-    -webkit-transform: scale(0.9) rotate(-3deg);
-    transform: scale(0.9) rotate(-3deg);
-  }
-
-  30%, 50%, 70%, 90% {
-    -webkit-transform: scale(1.1) rotate(3deg);
-    transform: scale(1.1) rotate(3deg);
-  }
-
-  40%, 60%, 80% {
-    -webkit-transform: scale(1.1) rotate(-3deg);
-    transform: scale(1.1) rotate(-3deg);
-  }
-
-  100% {
-    -webkit-transform: scale(1) rotate(0);
-    transform: scale(1) rotate(0);
-  }
-}
-
-@-o-keyframes modalTada {
-  0% {
-    -o-transform: scale(1);
-    transform: scale(1);
-  }
-
-  10%, 20% {
-    -o-transform: scale(0.9) rotate(-3deg);
-    transform: scale(0.9) rotate(-3deg);
-  }
-
-  30%, 50%, 70%, 90% {
-    -o-transform: scale(1.1) rotate(3deg);
-    transform: scale(1.1) rotate(3deg);
-  }
-
-  40%, 60%, 80% {
-    -o-transform: scale(1.1) rotate(-3deg);
-    transform: scale(1.1) rotate(-3deg);
-  }
-
-  100% {
-    -o-transform: scale(1) rotate(0);
-    transform: scale(1) rotate(0);
-  }
-}
-
-@keyframes modalTada {
-  0% {
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1);
-  }
-
-  10%, 20% {
-    -webkit-transform: scale(0.9) rotate(-3deg);
-    -ms-transform: scale(0.9) rotate(-3deg);
-    -o-transform: scale(0.9) rotate(-3deg);
-    transform: scale(0.9) rotate(-3deg);
-  }
-
-  30%, 50%, 70%, 90% {
-    -webkit-transform: scale(1.1) rotate(3deg);
-    -ms-transform: scale(1.1) rotate(3deg);
-    -o-transform: scale(1.1) rotate(3deg);
-    transform: scale(1.1) rotate(3deg);
-  }
-
-  40%, 60%, 80% {
-    -webkit-transform: scale(1.1) rotate(-3deg);
-    -ms-transform: scale(1.1) rotate(-3deg);
-    -o-transform: scale(1.1) rotate(-3deg);
-    transform: scale(1.1) rotate(-3deg);
-  }
-
-  100% {
-    -webkit-transform: scale(1) rotate(0);
-    -ms-transform: scale(1) rotate(0);
-    -o-transform: scale(1) rotate(0);
-    transform: scale(1) rotate(0);
-  }
 }
 
 .md-perspective,

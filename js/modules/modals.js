@@ -55,8 +55,8 @@ var EffecktModals = {
         self = this;
 
     this.modalWrap.show();
-    
-    this.modalStyle = button.data("effeckt-type");
+
+    this.modalStyle = "md-effect-" + button.data("effeckt-modal-type").replace(/[^0-9]/g, '');
 
     this.modalWrap.addClass(this.modalStyle);
 
