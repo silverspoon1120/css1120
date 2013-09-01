@@ -11,7 +11,11 @@ var EffecktListItems = {
   bindUIActions: function() {
 
     var self = this,
-        evt  = ( this.isTouchDevice ) ? 'touchstart' : 'click';
+        evt = 'click';
+
+    if (this.isTouchDevice) {
+      evt += ' touchstart';
+    }
 
     $(".effeckt-list-wrap button.add").on(evt, function() {
       self.addListItem(this);

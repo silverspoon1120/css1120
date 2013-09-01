@@ -165,6 +165,7 @@
 // Effect:  Slide and stick to top
 .sticky-up {
   top: 0;
+  transform: translateX(-50%);
 }
 .sticky-up .effeckt-modal {
   transform: translateY(-100%);

@@ -14,7 +14,11 @@ var EffecktPositionalModals = {
 
   bindUIActions: function() {
     var self = this,
-        evt  = ( this.isTouchDevice ) ? 'touchstart' : 'click';
+        evt  = 'click';
+    
+    if (this.isTouchDevice) {
+      evt += ' touchstart';
+    }
 
     $(this.modalButtonClass).on(evt, function(e) {
       e.preventDefault();

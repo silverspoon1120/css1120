@@ -49,7 +49,11 @@ var Tabs = {
 
     //keep a reference to this (Tabs) object.
     var self = this,
-        evt  = ( this.isTouchDevice ) ? 'touchstart' : 'click';
+        evt = 'click';
+
+    if (this.isTouchDevice) {
+      evt += ' touchstart';
+    }
 
     $(this.tabsClass).on(evt, function(e) {
       e.preventDefault();

@@ -15,7 +15,11 @@ var EffecktOffScreenNav = {
   bindUIActions: function() {
 
     var self = this,
-        evt  = ( this.isTouchDevice ) ? 'touchstart' : 'click';
+        evt = 'click';
+
+    if (this.isTouchDevice) {
+      evt += ' touchstart';
+    }
 
     $(".off-screen-nav-button, #effeckt-off-screen-nav-close").on(evt, function() {
       self.toggleNav(this);
